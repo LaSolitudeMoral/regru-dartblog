@@ -1,0 +1,41 @@
+{% load static %}
+{% load cache %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %} Dart Blog {% endblock %}</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'dartblog/main_design/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'dartblog/main_design/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dartblog/main_design/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dartblog/main_design/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'dartblog/main_design/style.css' %}">
+    <link rel="stylesheet" href="{% static 'dartblog/main_design/responsive.css' %}">
+</head>
+
+<body>
+<div class="wrapper">
+    {% cache 5 header %}
+        {% include 'dartblog/include/_header.html' %}
+    {% endcache %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% cache 5 footer %}
+        {% include 'dartblog/include/_footer.html' %}
+    {% endcache %}
+</div>
+<script src="{% static 'dartblog/main_design/js/jquery-3.1.1.min.js' %}></script>
+    <script src="{% static 'dartblog/main_design/js/bootstrap.min.js' %}></script>
+<script src="{% static 'dartblog/main_design/js/owl.carousel.min.js' %}></script>
+    <script src="{% static 'dartblog/main_design/js/active.js' %}></script>
+</body>
+
+</html>
